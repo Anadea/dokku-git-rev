@@ -14,6 +14,6 @@ GIT_REV=$(tail -1 "$DOKKU_ROOT/$APP/.dokku-git-rev")
 rm "$DOKKU_ROOT/$APP/.dokku-git-rev"
 
 # Push the GIT_REV to the docker image
-id=$(echo "export GIT_REV=$GIT_REV" | docker run -i -a stdin $IMAGE /bin/bash -c "cat > /app/.profile.d/git_rev.sh")
+id=$(echo "export GIT_REV=$GIT_REV" | docker run $DOKKU_GLOBAL_RUN_ARGS -i -a stdin $IMAGE /bin/bash -c "cat > /app/.profile.d/git_rev.sh")
 test $(docker wait $id) -eq 0
 docker commit $id $IMAGE > /dev/null
