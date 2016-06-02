@@ -1,5 +1,3 @@
-# dokku-git-rev [![Build Status](https://img.shields.io/travis/cjblomqvist/dokku-git-rev.svg?branch=master "Build Status")](https://travis-ci.org/cjblomqvist/dokku-git-rev)
-
 Lets you fetch the git revision hash used to build the app from the `GIT_REV`
 
 ## requirements
