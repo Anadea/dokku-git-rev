@@ -4,6 +4,9 @@ source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
 
 APP="$1"; IMAGE="$(get_app_image_name $APP)"
 
+# Ensure the image is appropriate
+is_image_herokuish_based "$IMAGE" || exit 0
+
 # Ensure the .dokku-git-rev file actually exists
 [[ ! -f "$DOKKU_ROOT/$APP/.dokku-git-rev" ]] && exit 0
 
